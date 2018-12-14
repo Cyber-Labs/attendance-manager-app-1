@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/subject_name"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:text="hello"/>
+    <TextView
+        android:id="@+id/current"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="50dp"
+        android:text="hel"
+        android:layout_toRightOf="@id/subject_name"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/minimum"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="hel"
+        android:layout_toRightOf="@id/current"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/presents"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Attended : 13"
+        android:textSize="15sp"
+        android:layout_below="@id/subject_name"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/absents"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Bunked : 13"
+        android:textSize="15sp"
+        android:layout_below="@id/presents"
+        android:layout_marginTop="15dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/presents"
+        android:layout_below="@id/subject_name">
+
+        <Button
+            android:id="@+id/pAdd"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textSize="20sp"
+            android:text="+"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_green_dark"/>
+        <Button
+            android:id="@+id/pSubtract"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textSize="20sp"
+            android:text="-"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/holo_red_dark"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/absents"
+        android:layout_below="@id/presents">
+
+        <Button
+            android:id="@+id/aAdd"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textSize="20sp"
+            android:text="+"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_green_dark"/>
+        <Button
+            android:id="@+id/aSubtract"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textSize="20sp"
+            android:text="-"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/holo_red_dark"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
