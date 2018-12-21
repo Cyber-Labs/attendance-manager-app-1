@@ -34,12 +34,12 @@
                 android:layout_margin="10dp">
 
                 <Button
-                    android:id="@+id/add"
+                    android:id="@+id/refresh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="AddData"
-                    android:text="Add Data" />
-
+                    android:onClick="Refresh"
+                    android:text="Refresh Data"
+                    android:layout_marginRight="10dp"/>
                 <Button
                     android:id="@+id/view"
                     android:layout_width="wrap_content"
