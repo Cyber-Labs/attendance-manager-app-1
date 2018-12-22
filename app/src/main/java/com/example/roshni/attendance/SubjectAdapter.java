@@ -48,6 +48,8 @@ public class SubjectAdapter extends ArrayAdapter<subject>
         TextView current = (TextView) listItem.findViewById(R.id.current);
         current.setText(currentSubject.getmcurrent());
 
+        TextView id=(TextView)listItem.findViewById(R.id.id);
+        id.setText("ID = "+currentSubject.getmId());
         return listItem;
     }
 }

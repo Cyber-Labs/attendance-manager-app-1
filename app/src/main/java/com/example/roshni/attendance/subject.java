@@ -2,16 +2,22 @@ package com.example.roshni.attendance;
 
 public class subject
 {
-    private String mName;
+    private String mName,mId;
     private String mMinimum,mPresent,mAbsent,mcurrent;
 
-    public subject(String name,String minimum,String present,String absent,String current)
+    public subject(String id,String name,String minimum,String present,String absent,String current)
     {
+        mId=id;
         mName=name;
         mMinimum=minimum;
         mPresent=present;
         mAbsent=absent;
         mcurrent=current;
+    }
+
+    public String getmId()
+    {
+        return mId;
     }
 
     public String getmMinimum()
