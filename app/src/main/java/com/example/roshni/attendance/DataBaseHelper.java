@@ -59,4 +59,24 @@ public class DataBaseHelper extends SQLiteOpenHelper
         int x=db.delete(TABLE_NAME," ID=? ",new String[]{id});
         return x;
     }
+    public boolean update_presents(String id,String presents,String current)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues value=new ContentValues();
+        value.put(COL1,id);
+        value.put(COL3,presents);
+        value.put(COL5,current);
+        db.update(TABLE_NAME,value," ID = ?",new String []{id});
+        return true;
+    }
+    public boolean update_absents(String id,String absents,String current)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues value=new ContentValues();
+        value.put(COL1,id);
+        value.put(COL4,absents);
+        value.put(COL5,current);
+        db.update(TABLE_NAME,value," ID = ?",new String []{id});
+        return true;
+    }
 }

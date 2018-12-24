@@ -49,7 +49,16 @@ public class SubjectAdapter extends ArrayAdapter<subject>
         current.setText(currentSubject.getmcurrent());
 
         TextView id=(TextView)listItem.findViewById(R.id.id);
-        id.setText("ID = "+currentSubject.getmId());
+        id.setText(currentSubject.getmId());
+
+        Button b1=(Button)listItem.findViewById(R.id.pAdd);
+        b1.setTag(position);
+        Button b2=(Button)listItem.findViewById(R.id.pSubtract);
+        b2.setTag(position);
+        Button b3=(Button)listItem.findViewById(R.id.aAdd);
+        b3.setTag(position);
+        Button b4=(Button)listItem.findViewById(R.id.aSubtract);
+        b4.setTag(position);
         return listItem;
     }
 }
