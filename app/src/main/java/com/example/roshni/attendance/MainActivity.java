@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity
     Button b1,b2;
     ListView listView;
     SubjectAdapter subjects;
+    ArrayList<subject> names;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity
         });
 
 
-        ArrayList<subject> names=new ArrayList<>();
+        names=new ArrayList<>();
         Cursor res=myDb.getAllData();
         while (res.moveToNext())
         {
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity
             if(a+b==0)
                 c=0;
             else
-                c=(a/(a+b))*100;
+                c=(a*100)/(a+b);
             String s5=String.valueOf(c);
             names.add(new subject(s0,s1,s2,s3,s4,s5));
         }
@@ -137,9 +138,6 @@ public class MainActivity extends AppCompatActivity
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
-
-
-
     boolean doubleBackToExitPressedOnce = false;
 
     @Override
@@ -157,5 +155,87 @@ public class MainActivity extends AppCompatActivity
                         finish();
                     }
                 }).setNegativeButton("no", null).show();
+    }
+
+    public void PADD(View view)
+    {
+        int position=(Integer)view.getTag();
+        String id=names.get(position).getmId();
+        //Toast.makeText(MainActivity.this,id,Toast.LENGTH_SHORT).show();
+        String present=names.get(position).getmPresent();
+        String absent=names.get(position).getmAbsent();
+        int p=Integer.parseInt(present);
+        int a=Integer.parseInt(absent);
+        p++;
+        present=""+p;
+        int cur;
+        if(a+p==0)
+            cur=0;
+        else
+            cur=(p*100)/(a+p);
+        String current=""+cur;
+        //Toast.makeText(MainActivity.this,present,Toast.LENGTH_SHORT).show();
+        myDb.update_presents(id,present,current);
+        subjects.notifyDataSetChanged();
+    }
+
+    public void PSUBTRACT(View view)
+    {
+        int position=(Integer)view.getTag();
+        String id=names.get(position).getmId();
+        String present=names.get(position).getmPresent();
+        String absent=names.get(position).getmAbsent();
+        int p=Integer.parseInt(present);
+        int a=Integer.parseInt(absent);
+        p--;
+        present=String.valueOf(p);
+        int cur;
+        if(a+p==0)
+            cur=0;
+        else
+            cur=(p*100)/(a+p);
+        String current=String.valueOf(cur);
+        myDb.update_presents(id,present,current);
+        subjects.notifyDataSetChanged();
+    }
+
+    public void AADD(View view)
+    {
+        int position=(Integer)view.getTag();
+        String id=names.get(position).getmId();
+        String present=names.get(position).getmPresent();
+        String absent=names.get(position).getmAbsent();
+        int p=Integer.parseInt(present);
+        int a=Integer.parseInt(absent);
+        a++;
+        absent=String.valueOf(a);
+        int cur;
+        if(a+p==0)
+            cur=0;
+        else
+            cur=(p*100)/(a+p);
+        String current=String.valueOf(cur);
+        myDb.update_absents(id,absent,current);
+        subjects.notifyDataSetChanged();
+    }
+
+    public void ASUBTRACT(View view)
+    {
+        int position=(Integer)view.getTag();
+        String id=names.get(position).getmId();
+        String present=names.get(position).getmPresent();
+        String absent=names.get(position).getmAbsent();
+        int p=Integer.parseInt(present);
+        int a=Integer.parseInt(absent);
+        a--;
+        absent=String.valueOf(a);
+        int cur;
+        if(a+p==0)
+            cur=0;
+        else
+            cur=(p*100)/(a+p);
+        String current=String.valueOf(cur);
+        myDb.update_absents(id,absent,current);
+        subjects.notifyDataSetChanged();
     }
 }
