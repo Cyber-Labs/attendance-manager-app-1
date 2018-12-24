@@ -34,15 +34,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Subject Minimum % Here"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+
+
+        android:maxLength="2"
+        android:inputType="number"/>
 
     <Button
         android:id="@+id/enter_add_subject"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ADD SUBJECT"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="18dp"
+        android:background="#388E3C"
+
         android:layout_marginTop="50dp"
         android:layout_marginLeft="10dp"
-        android:textStyle="bold"
         android:onClick="ADDSUBJECT"/>
 </LinearLayout>

@@ -26,6 +26,7 @@ public class AddSubject extends AppCompatActivity
     public void ADDSUBJECT(View view)
     {
         String subject_name=e1.getText().toString();
+
         String subject_minimum=e2.getText().toString();
         long insertdata= mmyDb.insertData(subject_name,subject_minimum);
         if(insertdata==-1)
@@ -34,5 +35,9 @@ public class AddSubject extends AppCompatActivity
             Toast.makeText(AddSubject.this,"Successful",Toast.LENGTH_SHORT).show();
         e1.setText("");
         e2.setText("");
+        Intent i= new Intent(this,MainActivity.class);
+        startActivity(i);
+
     }
+
 }
