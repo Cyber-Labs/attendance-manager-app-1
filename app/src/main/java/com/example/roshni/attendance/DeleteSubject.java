@@ -5,12 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class DeleteSubject extends AppCompatActivity
 {
     EditText e1;
     DataBaseHelper myDb;
+    SubjectAdapter subjectAdapter;
+    ArrayList<subject> names;
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -28,6 +34,5 @@ public class DeleteSubject extends AppCompatActivity
         else
             Toast.makeText(DeleteSubject.this,"Successful",Toast.LENGTH_SHORT).show();
         e1.setText("");
-
     }
 }

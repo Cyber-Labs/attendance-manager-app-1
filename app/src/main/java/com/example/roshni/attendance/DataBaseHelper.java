@@ -79,4 +79,17 @@ public class DataBaseHelper extends SQLiteOpenHelper
         db.update(TABLE_NAME,value," ID = ?",new String []{id});
         return true;
     }
+    public boolean modify(String id,String subject,String presents,String absents,String current,String minimum)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues value=new ContentValues();
+        value.put(COL1,id);
+        value.put(COL2,subject);
+        value.put(COL3,presents);
+        value.put(COL4,absents);
+        value.put(COL5,current);
+        value.put(COL6,minimum);
+        db.update(TABLE_NAME,value," ID = ?",new String []{id});
+        return true;
+    }
 }

@@ -12,6 +12,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_edit"/>
         <EditText
+            android:id="@+id/modify_subj_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Subject Name"/>
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_min"/>
         <EditText
+            android:id="@+id/modify_min_percent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Minimum Attendance"/>
@@ -40,6 +42,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_attend"/>
         <EditText
+            android:id="@+id/modify_presents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Classes Attended"/>
@@ -54,6 +57,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_bunked"/>
         <EditText
+            android:id="@+id/modify_absents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Classes Bunked"/>
