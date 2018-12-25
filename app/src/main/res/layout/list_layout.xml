@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity"
     android:background="@drawable/box">
+    android:descendantFocusability="blocksDescendants">
 
     <TextView
         android:id="@+id/subject_name"
