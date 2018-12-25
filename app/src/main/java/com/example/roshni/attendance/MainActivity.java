@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -38,6 +39,20 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        names=new ArrayList<>();
+        subjects=new SubjectAdapter(this,names);
+        listView=(ListView)findViewById(R.id.list_view);
+        listView.setAdapter(subjects);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                openDialog();
+            }
+        });
+
+
+
         myDb=new DataBaseHelper(this);
         b1=(Button)findViewById(R.id.add);
         b2=(Button)findViewById(R.id.view);
@@ -75,7 +90,7 @@ public class MainActivity extends AppCompatActivity
         });
 
 
-        names=new ArrayList<>();
+
         Cursor res=myDb.getAllData();
         while (res.moveToNext())
         {
@@ -94,9 +109,7 @@ public class MainActivity extends AppCompatActivity
             String s5=String.valueOf(c);
             names.add(new subject(s0,s1,s2,s3,s4,s5));
         }
-        subjects=new SubjectAdapter(this,names);
-        listView=(ListView)findViewById(R.id.list_view);
-        listView.setAdapter(subjects);
+
     }
 
     public void Refresh(View view)
@@ -237,5 +250,9 @@ public class MainActivity extends AppCompatActivity
         String current=String.valueOf(cur);
         myDb.update_absents(id,absent,current);
         subjects.notifyDataSetChanged();
+    }
+    public void openDialog(){
+        LayoutDialog layoutDialog = new LayoutDialog();
+        layoutDialog.show(getSupportFragmentManager(),"layout dialog");
     }
 }
