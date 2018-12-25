@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/box">
 
     <TextView
         android:id="@+id/subject_name"
@@ -44,7 +45,8 @@
         android:text="Attended : 13"
         android:textSize="15sp"
         android:layout_below="@id/subject_name"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="4dp"/>
     <TextView
         android:id="@+id/absents"
         android:layout_width="100dp"
@@ -52,7 +54,8 @@
         android:text="Bunked : 13"
         android:textSize="15sp"
         android:layout_below="@id/presents"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="4dp"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,7 +71,7 @@
             android:textSize="20sp"
             android:text="+"
             android:layout_marginTop="10dp"
-            android:background="@android:color/holo_green_dark"/>
+            android:background="@drawable/round_buttons_green"/>
         <Button
             android:id="@+id/pSubtract"
             android:onClick="PSUBTRACT"
@@ -79,7 +82,7 @@
             android:textStyle="bold"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:background="@android:color/holo_red_dark"/>
+            android:background="@drawable/round_button_red"/>
 
     </LinearLayout>
     <LinearLayout
@@ -97,7 +100,8 @@
             android:textSize="20sp"
             android:text="+"
             android:layout_marginTop="10dp"
-            android:background="@android:color/holo_green_dark"/>
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/round_buttons_green"/>
         <Button
             android:id="@+id/aSubtract"
             android:onClick="ASUBTRACT"
@@ -108,14 +112,15 @@
             android:textStyle="bold"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:background="@android:color/holo_red_dark"/>
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/round_button_red"/>
         <TextView
             android:layout_width="40dp"
             android:layout_height="25dp"
             android:textSize="20sp"
             android:text="ID :"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="120dp"
+            android:layout_marginLeft="100dp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:background="@android:color/holo_blue_bright"/>
