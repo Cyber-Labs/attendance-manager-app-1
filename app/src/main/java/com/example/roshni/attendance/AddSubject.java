@@ -33,18 +33,23 @@ public class AddSubject extends AppCompatActivity
     public void ADDSUBJECT(View view)
     {
         String subject_name=e1.getText().toString();
-
         String subject_minimum=e2.getText().toString();
-        long insertdata= mmyDb.insertData(subject_name,subject_minimum);
-        if(insertdata==-1)
-            Toast.makeText(AddSubject.this,"Error Occured",Toast.LENGTH_SHORT).show();
+        if((subject_minimum.length()==0)||(subject_name.length()==0))
+        {
+            Toast.makeText(AddSubject.this, "Empty Field Encountered", Toast.LENGTH_SHORT).show();
+        }
         else
-            Toast.makeText(AddSubject.this,"Successful",Toast.LENGTH_SHORT).show();
-        e1.setText("");
-        e2.setText("");
-        subjects.notifyDataSetChanged();
-        Intent i= new Intent(this,MainActivity.class);
-        startActivity(i);
-
+            {
+            long insertdata = mmyDb.insertData(subject_name, subject_minimum);
+            if (insertdata == -1)
+                Toast.makeText(AddSubject.this, "Error Occured", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(AddSubject.this, "Successful", Toast.LENGTH_SHORT).show();
+            e1.setText("");
+            e2.setText("");
+            subjects.notifyDataSetChanged();
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
     }
 }

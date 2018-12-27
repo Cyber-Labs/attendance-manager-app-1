@@ -101,13 +101,12 @@ public class MainActivity extends AppCompatActivity
                     Toast.makeText(MainActivity.this,"Clicked on LOGOUT",Toast.LENGTH_SHORT).show();
                 if(id==R.id.nav_help)
                 {
-                    Intent i=new Intent(Intent.ACTION_SEND);
-                    i.setData(Uri.parse("mailto:"));
-                    i.putExtra(Intent.EXTRA_EMAIL,"kritikgarg123@gmail.com");
-                    i.putExtra(Intent.EXTRA_SUBJECT,"HEY , There Is A Bug I Encountered");
-                    i.putExtra(Intent.EXTRA_TEXT,"this ws sent from your app by ...");
-                    i.setType("message/refcsff");
-                    startActivity(i);
+                    Intent intent=new Intent(Intent.ACTION_SENDTO);
+                    intent.setData(Uri.parse("mailto:"));
+                    intent.putExtra(Intent.EXTRA_SUBJECT,"Hey, i've just encountered an error");
+                    intent.putExtra(Intent.EXTRA_TEXT,"This bug has been sent to you by ...");
+                    intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"rishabh.agarwal997@gmail.com","kritikgarg123@gmail.com"});
+                    startActivity(intent);
                 }
                 if(id==R.id.nav_developers)
                 {
@@ -218,7 +217,6 @@ public class MainActivity extends AppCompatActivity
         String current=""+cur;
         //Toast.makeText(MainActivity.this,present,Toast.LENGTH_SHORT).show();
         myDb.update_presents(id,present,current);
-        subjects.notifyDataSetChanged();
     }
 
     public void PSUBTRACT(View view)
@@ -229,16 +227,22 @@ public class MainActivity extends AppCompatActivity
         String absent=names.get(position).getmAbsent();
         int p=Integer.parseInt(present);
         int a=Integer.parseInt(absent);
-        p--;
-        present=String.valueOf(p);
-        int cur;
-        if(a+p==0)
-            cur=0;
-        else
-            cur=(p*100)/(a+p);
-        String current=String.valueOf(cur);
-        myDb.update_presents(id,present,current);
-        subjects.notifyDataSetChanged();
+        if(p==0)
+        {
+            Toast.makeText(MainActivity.this,"Already Zero",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            p--;
+            present = String.valueOf(p);
+            int cur;
+            if (a + p == 0)
+                cur = 0;
+            else
+                cur = (p * 100) / (a + p);
+            String current = String.valueOf(cur);
+            myDb.update_presents(id, present, current);
+            subjects.notifyDataSetChanged();
+        }
     }
 
     public void AADD(View view)
@@ -269,16 +273,22 @@ public class MainActivity extends AppCompatActivity
         String absent=names.get(position).getmAbsent();
         int p=Integer.parseInt(present);
         int a=Integer.parseInt(absent);
-        a--;
-        absent=String.valueOf(a);
-        int cur;
-        if(a+p==0)
-            cur=0;
-        else
-            cur=(p*100)/(a+p);
-        String current=String.valueOf(cur);
-        myDb.update_absents(id,absent,current);
-        subjects.notifyDataSetChanged();
+        if(a==0)
+        {
+            Toast.makeText(MainActivity.this,"Already Zero",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            a--;
+            absent = String.valueOf(a);
+            int cur;
+            if (a + p == 0)
+                cur = 0;
+            else
+                cur = (p * 100) / (a + p);
+            String current = String.valueOf(cur);
+            myDb.update_absents(id, absent, current);
+            subjects.notifyDataSetChanged();
+        }
     }
    /* public void openDialog(){
         LayoutDialog layoutDialog = new LayoutDialog();

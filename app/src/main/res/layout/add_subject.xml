@@ -17,6 +17,7 @@
         android:id="@+id/enter_subject_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="text"
         android:hint="Enter Subject Name Here"
         android:layout_marginLeft="20dp"/>
 
@@ -35,8 +36,6 @@
         android:layout_height="wrap_content"
         android:hint="Enter Subject Minimum % Here"
         android:layout_marginLeft="20dp"
-
-
         android:maxLength="2"
         android:inputType="number"/>
 

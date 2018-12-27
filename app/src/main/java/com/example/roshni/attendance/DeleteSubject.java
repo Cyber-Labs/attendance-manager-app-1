@@ -28,11 +28,18 @@ public class DeleteSubject extends AppCompatActivity
     public void DELETESUBJECT(View view)
     {
         String s=e1.getText().toString();
-        int x=myDb.deleteData(s);
-        if(x==-1)
-            Toast.makeText(DeleteSubject.this,"Error Occured",Toast.LENGTH_SHORT).show();
+        if(s.length()==0)
+        {
+            Toast.makeText(DeleteSubject.this, "Empty Field Encountered", Toast.LENGTH_SHORT).show();
+        }
         else
-            Toast.makeText(DeleteSubject.this,"Successful",Toast.LENGTH_SHORT).show();
-        e1.setText("");
+            {
+            int x = myDb.deleteData(s);
+            if (x == -1)
+                Toast.makeText(DeleteSubject.this, "Error Occured", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(DeleteSubject.this, "Successful", Toast.LENGTH_SHORT).show();
+            e1.setText("");
+        }
     }
 }

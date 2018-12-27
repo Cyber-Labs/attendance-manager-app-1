@@ -10,6 +10,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:src="@drawable/ic_edit"/>
         <EditText
             android:id="@+id/modify_subj_name"
@@ -25,11 +26,14 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:src="@drawable/ic_min"/>
         <EditText
             android:id="@+id/modify_min_percent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="2"
             android:hint="Minimum Attendance"/>
 
     </LinearLayout>
@@ -40,12 +44,14 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:src="@drawable/ic_attend"/>
         <EditText
             android:id="@+id/modify_presents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Classes Attended"/>
+            android:hint="Classes Attended"
+            android:inputType="number"/>
 
     </LinearLayout>
     <LinearLayout
@@ -55,10 +61,12 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:src="@drawable/ic_bunked"/>
         <EditText
             android:id="@+id/modify_absents"
             android:layout_width="match_parent"
+            android:inputType="number"
             android:layout_height="wrap_content"
             android:hint="Classes Bunked"/>
 

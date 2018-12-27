@@ -67,16 +67,22 @@ public class LayoutDialog extends AppCompatDialogFragment
                         mod_absent=absent.getText().toString();
                         mod_sub_name=subname.getText().toString();
                         mod_min_percent=minpercent.getText().toString();
-
-                        int p=Integer.parseInt(mod_present);
-                        int a=Integer.parseInt(mod_absent);
-                        int cur;
-                        if(a+p==0)
-                            cur=0;
+                        if((mod_min_percent.length()==0)||(mod_sub_name.length()==0)||(mod_present.length()==0)||(mod_absent.length()==0))
+                        {
+                            Toast.makeText(context, "Empty Field Encountered", Toast.LENGTH_SHORT).show();
+                        }
                         else
-                            cur=(p*100)/(a+p);
-                        String current=String.valueOf(cur);
-                        myDb.modify(mod_id,mod_sub_name,mod_present,mod_absent,current,mod_min_percent);
+                            {
+                            int p = Integer.parseInt(mod_present);
+                            int a = Integer.parseInt(mod_absent);
+                            int cur;
+                            if (a + p == 0)
+                                cur = 0;
+                            else
+                                cur = (p * 100) / (a + p);
+                            String current = String.valueOf(cur);
+                            myDb.modify(mod_id, mod_sub_name, mod_present, mod_absent, current, mod_min_percent);
+                        }
                     }
                 });
         return builder.create();
