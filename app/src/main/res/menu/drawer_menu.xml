@@ -27,6 +27,10 @@
                 android:id="@+id/nav_help"
                 android:icon="@drawable/ic_help"
                 android:title="Help" />
+            <item
+                android:id="@+id/nav_developers"
+                android:icon="@drawable/ic_developer_mode_black_24dp"
+                android:title="Developers"/>
         </menu>
     </item>
 </menu>

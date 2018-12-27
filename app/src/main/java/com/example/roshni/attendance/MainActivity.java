@@ -3,6 +3,7 @@ package com.example.roshni.attendance;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -46,8 +47,21 @@ public class MainActivity extends AppCompatActivity
         listView.setAdapter(subjects);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                openDialog();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                Cursor res1=myDb.getAllData();
+                for(int z=0;z<=i;z++)
+                {
+                    res1.moveToNext();
+                }
+                String mod_id=res1.getString(0);
+                String mod_sub_name=res1.getString(1);
+                String mod_min_percent=res1.getString(5);
+                String mod_present=res1.getString(2);
+                String mod_absent=res1.getString(3);
+                LayoutDialog layoutDialog = new LayoutDialog(MainActivity.this,mod_id,mod_sub_name,mod_min_percent,mod_present,mod_absent);
+                layoutDialog.show(getSupportFragmentManager(),"layout dialog");
+
             }
         });
 
@@ -85,6 +99,20 @@ public class MainActivity extends AppCompatActivity
                     Toast.makeText(MainActivity.this,"Clicked on PROFILE",Toast.LENGTH_SHORT).show();
                 if(id==R.id.nav_loogut)
                     Toast.makeText(MainActivity.this,"Clicked on LOGOUT",Toast.LENGTH_SHORT).show();
+                if(id==R.id.nav_help)
+                {
+                    Intent intent=new Intent(Intent.ACTION_SENDTO);
+                    intent.setData(Uri.parse("mailto:"));
+                    intent.putExtra(Intent.EXTRA_SUBJECT,"Hey, i've just encountered an error");
+                    intent.putExtra(Intent.EXTRA_TEXT,"This bug has been sent to you by ...");
+                    intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"rishabh.agarwal997@gmail.com","kritikgarg123@gmail.com"});
+                    startActivity(intent);
+                }
+                if(id==R.id.nav_developers)
+                {
+                    Intent i=new Intent(MainActivity.this,developers.class);
+                    startActivity(i);
+                }
                 return true;
             }
         });
@@ -189,7 +217,6 @@ public class MainActivity extends AppCompatActivity
         String current=""+cur;
         //Toast.makeText(MainActivity.this,present,Toast.LENGTH_SHORT).show();
         myDb.update_presents(id,present,current);
-        subjects.notifyDataSetChanged();
     }
 
     public void PSUBTRACT(View view)
@@ -200,16 +227,22 @@ public class MainActivity extends AppCompatActivity
         String absent=names.get(position).getmAbsent();
         int p=Integer.parseInt(present);
         int a=Integer.parseInt(absent);
-        p--;
-        present=String.valueOf(p);
-        int cur;
-        if(a+p==0)
-            cur=0;
-        else
-            cur=(p*100)/(a+p);
-        String current=String.valueOf(cur);
-        myDb.update_presents(id,present,current);
-        subjects.notifyDataSetChanged();
+        if(p==0)
+        {
+            Toast.makeText(MainActivity.this,"Already Zero",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            p--;
+            present = String.valueOf(p);
+            int cur;
+            if (a + p == 0)
+                cur = 0;
+            else
+                cur = (p * 100) / (a + p);
+            String current = String.valueOf(cur);
+            myDb.update_presents(id, present, current);
+            subjects.notifyDataSetChanged();
+        }
     }
 
     public void AADD(View view)
@@ -240,19 +273,25 @@ public class MainActivity extends AppCompatActivity
         String absent=names.get(position).getmAbsent();
         int p=Integer.parseInt(present);
         int a=Integer.parseInt(absent);
-        a--;
-        absent=String.valueOf(a);
-        int cur;
-        if(a+p==0)
-            cur=0;
-        else
-            cur=(p*100)/(a+p);
-        String current=String.valueOf(cur);
-        myDb.update_absents(id,absent,current);
-        subjects.notifyDataSetChanged();
+        if(a==0)
+        {
+            Toast.makeText(MainActivity.this,"Already Zero",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            a--;
+            absent = String.valueOf(a);
+            int cur;
+            if (a + p == 0)
+                cur = 0;
+            else
+                cur = (p * 100) / (a + p);
+            String current = String.valueOf(cur);
+            myDb.update_absents(id, absent, current);
+            subjects.notifyDataSetChanged();
+        }
     }
-    public void openDialog(){
+   /* public void openDialog(){
         LayoutDialog layoutDialog = new LayoutDialog();
         layoutDialog.show(getSupportFragmentManager(),"layout dialog");
-    }
+    }*/
 }

@@ -121,13 +121,13 @@
             android:textSize="20sp"
             android:text="ID :"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="80dp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:background="@android:color/holo_blue_bright"/>
         <TextView
             android:id="@+id/id"
-            android:layout_width="20dp"
+            android:layout_width="35dp"
             android:layout_height="25dp"
             android:textSize="20sp"
             android:layout_marginTop="10dp"
