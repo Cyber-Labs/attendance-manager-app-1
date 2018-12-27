@@ -42,4 +42,10 @@ public class DeleteSubject extends AppCompatActivity
             e1.setText("");
         }
     }
+    @Override
+    public void onBackPressed() {
+        Intent i=new Intent(DeleteSubject.this,MainActivity.class);
+        startActivity(i);
+
+    }
 }

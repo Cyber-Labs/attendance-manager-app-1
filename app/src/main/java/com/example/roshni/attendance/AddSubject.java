@@ -50,6 +50,14 @@ public class AddSubject extends AppCompatActivity
             subjects.notifyDataSetChanged();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
+
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(AddSubject.this, MainActivity.class);
+        startActivity(i);
+
     }
 }

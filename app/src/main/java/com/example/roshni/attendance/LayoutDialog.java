@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -63,6 +64,8 @@ public class LayoutDialog extends AppCompatDialogFragment
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i)
                     {
+
+
                         mod_present=present.getText().toString();
                         mod_absent=absent.getText().toString();
                         mod_sub_name=subname.getText().toString();
@@ -82,9 +85,21 @@ public class LayoutDialog extends AppCompatDialogFragment
                                 cur = (p * 100) / (a + p);
                             String current = String.valueOf(cur);
                             myDb.modify(mod_id, mod_sub_name, mod_present, mod_absent, current, mod_min_percent);
-                        }
+
+                                Intent in=new Intent(context,MainActivity.class);
+                                startActivity(in);
+
+                            }
+
+
+
                     }
+
+
+
                 });
         return builder.create();
+
+
     }
 }
