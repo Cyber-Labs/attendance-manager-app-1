@@ -189,6 +189,9 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
+                        Intent i=new Intent(MainActivity.this,MainActivity.class);
+                        startActivity(i);
+
                         Intent intent = new Intent(Intent.ACTION_MAIN);
                         intent.addCategory(Intent.CATEGORY_HOME);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -217,6 +220,9 @@ public class MainActivity extends AppCompatActivity
         String current=""+cur;
         //Toast.makeText(MainActivity.this,present,Toast.LENGTH_SHORT).show();
         myDb.update_presents(id,present,current);
+        Intent i=new Intent(MainActivity.this,MainActivity.class);
+        startActivity(i);
+
     }
 
     public void PSUBTRACT(View view)
@@ -242,6 +248,9 @@ public class MainActivity extends AppCompatActivity
             String current = String.valueOf(cur);
             myDb.update_presents(id, present, current);
             subjects.notifyDataSetChanged();
+            Intent i=new Intent(MainActivity.this,MainActivity.class);
+            startActivity(i);
+
         }
     }
 
@@ -263,6 +272,9 @@ public class MainActivity extends AppCompatActivity
         String current=String.valueOf(cur);
         myDb.update_absents(id,absent,current);
         subjects.notifyDataSetChanged();
+        Intent i=new Intent(MainActivity.this,MainActivity.class);
+        startActivity(i);
+
     }
 
     public void ASUBTRACT(View view)
@@ -288,8 +300,15 @@ public class MainActivity extends AppCompatActivity
             String current = String.valueOf(cur);
             myDb.update_absents(id, absent, current);
             subjects.notifyDataSetChanged();
+            Intent i=new Intent(MainActivity.this,MainActivity.class);
+            startActivity(i);
+
+
+
         }
     }
+
+
    /* public void openDialog(){
         LayoutDialog layoutDialog = new LayoutDialog();
         layoutDialog.show(getSupportFragmentManager(),"layout dialog");
