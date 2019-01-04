@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        myDb=new DataBaseHelper(this);
 
         names=new ArrayList<>();
         subjects=new SubjectAdapter(this,names);
@@ -67,7 +69,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        myDb=new DataBaseHelper(this);
         b1=(Button)findViewById(R.id.add);
         b2=(Button)findViewById(R.id.view);
 
@@ -200,117 +201,4 @@ public class MainActivity extends AppCompatActivity
                     }
                 }).setNegativeButton("no", null).show();
     }
-
-    public void PADD(View view)
-    {
-        int position=(Integer)view.getTag();
-        String id=names.get(position).getmId();
-        //Toast.makeText(MainActivity.this,id,Toast.LENGTH_SHORT).show();
-        String present=names.get(position).getmPresent();
-        String absent=names.get(position).getmAbsent();
-        int p=Integer.parseInt(present);
-        int a=Integer.parseInt(absent);
-        p++;
-        present=""+p;
-        int cur;
-        if(a+p==0)
-            cur=0;
-        else
-            cur=(p*100)/(a+p);
-        String current=""+cur;
-        //Toast.makeText(MainActivity.this,present,Toast.LENGTH_SHORT).show();
-        myDb.update_presents(id,present,current);
-        Intent i=new Intent(MainActivity.this,MainActivity.class);
-        startActivity(i);
-
-    }
-
-    public void PSUBTRACT(View view)
-    {
-        int position=(Integer)view.getTag();
-        String id=names.get(position).getmId();
-        String present=names.get(position).getmPresent();
-        String absent=names.get(position).getmAbsent();
-        int p=Integer.parseInt(present);
-        int a=Integer.parseInt(absent);
-        if(p==0)
-        {
-            Toast.makeText(MainActivity.this,"Already Zero",Toast.LENGTH_SHORT).show();
-        }
-        else {
-            p--;
-            present = String.valueOf(p);
-            int cur;
-            if (a + p == 0)
-                cur = 0;
-            else
-                cur = (p * 100) / (a + p);
-            String current = String.valueOf(cur);
-            myDb.update_presents(id, present, current);
-            subjects.notifyDataSetChanged();
-            Intent i=new Intent(MainActivity.this,MainActivity.class);
-            startActivity(i);
-
-        }
-    }
-
-    public void AADD(View view)
-    {
-        int position=(Integer)view.getTag();
-        String id=names.get(position).getmId();
-        String present=names.get(position).getmPresent();
-        String absent=names.get(position).getmAbsent();
-        int p=Integer.parseInt(present);
-        int a=Integer.parseInt(absent);
-        a++;
-        absent=String.valueOf(a);
-        int cur;
-        if(a+p==0)
-            cur=0;
-        else
-            cur=(p*100)/(a+p);
-        String current=String.valueOf(cur);
-        myDb.update_absents(id,absent,current);
-        subjects.notifyDataSetChanged();
-        Intent i=new Intent(MainActivity.this,MainActivity.class);
-        startActivity(i);
-
-    }
-
-    public void ASUBTRACT(View view)
-    {
-        int position=(Integer)view.getTag();
-        String id=names.get(position).getmId();
-        String present=names.get(position).getmPresent();
-        String absent=names.get(position).getmAbsent();
-        int p=Integer.parseInt(present);
-        int a=Integer.parseInt(absent);
-        if(a==0)
-        {
-            Toast.makeText(MainActivity.this,"Already Zero",Toast.LENGTH_SHORT).show();
-        }
-        else {
-            a--;
-            absent = String.valueOf(a);
-            int cur;
-            if (a + p == 0)
-                cur = 0;
-            else
-                cur = (p * 100) / (a + p);
-            String current = String.valueOf(cur);
-            myDb.update_absents(id, absent, current);
-            subjects.notifyDataSetChanged();
-            Intent i=new Intent(MainActivity.this,MainActivity.class);
-            startActivity(i);
-
-
-
-        }
-    }
-
-
-   /* public void openDialog(){
-        LayoutDialog layoutDialog = new LayoutDialog();
-        layoutDialog.show(getSupportFragmentManager(),"layout dialog");
-    }*/
 }
