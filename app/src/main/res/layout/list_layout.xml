@@ -66,7 +66,6 @@
 
         <Button
             android:id="@+id/pAdd"
-            android:onClick="PADD"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:textSize="20sp"
@@ -75,7 +74,6 @@
             android:background="@drawable/round_buttons_green"/>
         <Button
             android:id="@+id/pSubtract"
-            android:onClick="PSUBTRACT"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:textSize="20sp"
@@ -95,7 +93,6 @@
 
         <Button
             android:id="@+id/aAdd"
-            android:onClick="AADD"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:textSize="20sp"
@@ -105,7 +102,6 @@
             android:background="@drawable/round_buttons_green"/>
         <Button
             android:id="@+id/aSubtract"
-            android:onClick="ASUBTRACT"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:textSize="20sp"

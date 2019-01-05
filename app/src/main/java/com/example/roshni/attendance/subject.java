@@ -35,4 +35,20 @@ public class subject
     public String getmAbsent() { return mAbsent; }
 
     public String getmcurrent() {  return mcurrent;  }
+
+    public void setmMinimum(String mMinimum) {
+        this.mMinimum = mMinimum;
+    }
+    public void setmName(String mName) {
+        this.mName = mName;
+    }
+    public void setmPresent(String mPresent) {
+        this.mPresent = mPresent;
+    }
+    public void setmAbsent(String mAbsent) {
+        this.mAbsent = mAbsent;
+    }
+    public void setmCurrent(String mcurrent) {
+        this.mcurrent = mcurrent;
+    }
 }
