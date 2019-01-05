@@ -1,6 +1,7 @@
 package com.example.roshni.attendance;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,6 +53,15 @@ public class SubjectAdapter extends ArrayAdapter<subject>
         final TextView current = (TextView) listItem.findViewById(R.id.current);
         current.setText(currentSubject.getmcurrent());
 
+        String cs=currentSubject.getmcurrent();
+        String ms=currentSubject.getmMinimum();
+        int ci=Integer.parseInt(cs);
+        int mi=Integer.parseInt(ms);
+        if(ci<mi)
+            current.setTextColor(Color.RED);
+        else
+            current.setTextColor(0xFF669900);
+
         final TextView id=(TextView)listItem.findViewById(R.id.id);
         id.setText(currentSubject.getmId());
 
@@ -78,10 +88,15 @@ public class SubjectAdapter extends ArrayAdapter<subject>
                     cur=0;
                 else
                     cur=(p*100)/(a+p);
-                String _current=""+cur;
-                myDb.update_presents(_id,_present,_current);
+                String _current1=""+cur;
+                myDb.update_presents(_id,_present,_current1);
                 present.setText("Attended : "+_present);
-                current.setText(_current);
+                current.setText(_current1);
+                int min=Integer.parseInt(release.getText().toString());
+                if(cur<min)
+                    current.setTextColor(Color.RED);
+                else
+                    current.setTextColor(0xFF669900);
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
@@ -110,6 +125,11 @@ public class SubjectAdapter extends ArrayAdapter<subject>
                     myDb.update_presents(_id, _present, _current);
                     present.setText("Attended : " + _present);
                     current.setText(_current);
+                    int min=Integer.parseInt(release.getText().toString());
+                    if(cur<min)
+                        current.setTextColor(Color.RED);
+                    else
+                        current.setTextColor(0xFF669900);
                 }
             }
         });
@@ -135,6 +155,11 @@ public class SubjectAdapter extends ArrayAdapter<subject>
                 myDb.update_absents(_id,_absent,_current);
                 absent.setText("Bunked : "+_absent);
                 current.setText(_current);
+                int min=Integer.parseInt(release.getText().toString());
+                if(cur<min)
+                    current.setTextColor(Color.RED);
+                else
+                    current.setTextColor(0xFF669900);
             }
         });
         b4.setOnClickListener(new View.OnClickListener() {
@@ -162,6 +187,11 @@ public class SubjectAdapter extends ArrayAdapter<subject>
                     myDb.update_absents(_id, _absent, _current);
                     absent.setText("Bunked : " + _absent);
                     current.setText(_current);
+                    int min=Integer.parseInt(release.getText().toString());
+                    if(cur<min)
+                        current.setTextColor(Color.RED);
+                    else
+                        current.setTextColor(0xFF669900);
                 }
             }
         });

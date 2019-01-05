@@ -59,6 +59,24 @@ public class LayoutDialog extends AppCompatDialogFragment
                     {
                     }
                 })
+
+
+
+
+                .setNeutralButton("DELETE", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        int x = myDb.deleteData(mod_id);
+                        Intent in=new Intent(context,MainActivity.class);
+                        startActivity(in);
+                    }
+                })
+
+
+
+
                 .setPositiveButton("MODIFY", new DialogInterface.OnClickListener()
                 {
                     @Override
