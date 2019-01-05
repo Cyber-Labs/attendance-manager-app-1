@@ -67,12 +67,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
-
-        b1=(Button)findViewById(R.id.add);
-        b2=(Button)findViewById(R.id.view);
-
-
         dl=(DrawerLayout)findViewById(R.id.drawer_layout);
         abdt=new ActionBarDrawerToggle(this,dl,R.string.Open,R.string.Close);
         abdt.setDrawerIndicatorEnabled(true);
@@ -96,8 +90,8 @@ public class MainActivity extends AppCompatActivity
                     Intent i=new Intent(MainActivity.this,DeleteSubject.class);
                     startActivity(i);
                 }
-                if(id==R.id.nav_profile)
-                    Toast.makeText(MainActivity.this,"Clicked on PROFILE",Toast.LENGTH_SHORT).show();
+                if(id==R.id.nav_viewdata)
+                    ViewData();
                 if(id==R.id.nav_loogut)
                     Toast.makeText(MainActivity.this,"Clicked on LOGOUT",Toast.LENGTH_SHORT).show();
                 if(id==R.id.nav_help)
@@ -141,13 +135,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void Refresh(View view)
-    {
-        Intent i=new Intent(MainActivity.this,MainActivity.class);
-        startActivity(i);
-    }
-
-    public void ViewData(View view)
+    public void ViewData()
     {
         Cursor res = myDb.getAllData();
         if (res.getCount() == 0)

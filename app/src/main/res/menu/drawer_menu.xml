@@ -12,9 +12,9 @@
             android:icon="@drawable/ic_removesubject"
             android:title="Remove Subject" />
         <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_profile"
-            android:title="Profile" />
+            android:id="@+id/nav_viewdata"
+            android:icon="@drawable/ic_pageview_black_24dp"
+            android:title="View Data" />
         <item
             android:id="@+id/nav_loogut"
             android:icon="@drawable/ic_logout"
