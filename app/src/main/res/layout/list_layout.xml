@@ -16,29 +16,60 @@
         android:layout_marginTop="15dp"
         android:textStyle="bold"
         android:text="hello"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="140dp">
+        <TextView
+            android:layout_width="79dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp"
+            android:text="Current Percentage "
+            android:layout_toRightOf="@id/subject_name"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="15sp"
+            android:textStyle="bold" />
     <TextView
         android:id="@+id/current"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="35dp"
         android:text="hel"
         android:layout_toRightOf="@id/subject_name"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <TextView
+        android:textStyle="bold"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="220dp">
+        <TextView
+            android:layout_width="79dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp"
+            android:text="Required Percentage"
+            android:layout_toRightOf="@id/subject_name"
+            android:textColor="#D50000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        <TextView
         android:id="@+id/minimum"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="15dp"
-        android:text="hel"
-        android:layout_toRightOf="@id/current"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="35dp"
+            android:text="hel"
+            android:layout_toRightOf="@id/current"
+            android:textColor="#D50000"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
     <TextView
         android:id="@+id/presents"
         android:layout_width="100dp"
@@ -91,7 +122,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_toRightOf="@id/absents"
-        android:layout_below="@id/presents">
+        android:layout_below="@id/presents"
+        android:id="@+id/abc">
 
         <Button
             android:id="@+id/aAdd"
@@ -116,6 +148,7 @@
             android:layout_marginBottom="5dp"
             android:background="@drawable/round_button_red"/>
         <TextView
+            android:id="@+id/id1"
             android:layout_width="40dp"
             android:layout_height="25dp"
             android:textSize="20sp"
@@ -134,6 +167,7 @@
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:background="@android:color/holo_blue_bright"/>
+
 
     </LinearLayout>
 

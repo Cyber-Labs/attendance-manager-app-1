@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -95,8 +96,10 @@ public class MainActivity extends AppCompatActivity
                     Intent i=new Intent(MainActivity.this,DeleteSubject.class);
                     startActivity(i);
                 }
-                if(id==R.id.nav_profile)
-                    Toast.makeText(MainActivity.this,"Clicked on PROFILE",Toast.LENGTH_SHORT).show();
+                if(id==R.id.nav_profile) {
+                    Toast.makeText(MainActivity.this, "Clicked on PROFILE", Toast.LENGTH_SHORT).show();
+                    openDialog1();
+                }
                 if(id==R.id.nav_loogut)
                     Toast.makeText(MainActivity.this,"Clicked on LOGOUT",Toast.LENGTH_SHORT).show();
                 if(id==R.id.nav_help)
@@ -220,6 +223,15 @@ public class MainActivity extends AppCompatActivity
         String current=""+cur;
         //Toast.makeText(MainActivity.this,present,Toast.LENGTH_SHORT).show();
         myDb.update_presents(id,present,current);
+        int x=0;
+        if(cur<=75)
+          x=0;
+        else
+            x=(p*100/cur)-(p+a);
+        TextView tv = (TextView)findViewById(R.id.abc2);
+        tv.setText(String.valueOf(x));
+
+
         Intent i=new Intent(MainActivity.this,MainActivity.class);
         startActivity(i);
 
@@ -247,6 +259,13 @@ public class MainActivity extends AppCompatActivity
                 cur = (p * 100) / (a + p);
             String current = String.valueOf(cur);
             myDb.update_presents(id, present, current);
+            int x=0;
+            if(cur<=75)
+                x=0;
+            else
+                x=(p*100/cur)-(p+a);
+            TextView tv = (TextView)findViewById(R.id.abc2);
+            tv.setText(String.valueOf(x));
             subjects.notifyDataSetChanged();
             Intent i=new Intent(MainActivity.this,MainActivity.class);
             startActivity(i);
@@ -271,6 +290,13 @@ public class MainActivity extends AppCompatActivity
             cur=(p*100)/(a+p);
         String current=String.valueOf(cur);
         myDb.update_absents(id,absent,current);
+        int x=0;
+        if(cur<=75)
+            x=0;
+        else
+            x=p*100/cur-(p+a);
+        TextView tv = (TextView)findViewById(R.id.abc2);
+        tv.setText(String.valueOf(x));
         subjects.notifyDataSetChanged();
         Intent i=new Intent(MainActivity.this,MainActivity.class);
         startActivity(i);
@@ -299,6 +325,13 @@ public class MainActivity extends AppCompatActivity
                 cur = (p * 100) / (a + p);
             String current = String.valueOf(cur);
             myDb.update_absents(id, absent, current);
+            int x=0;
+            if(cur<=75)
+                x=0;
+            else
+                x=(p*100/cur)-(p+a);
+            TextView tv = (TextView)findViewById(R.id.abc2);
+            tv.setText(String.valueOf(x));
             subjects.notifyDataSetChanged();
             Intent i=new Intent(MainActivity.this,MainActivity.class);
             startActivity(i);
@@ -309,8 +342,8 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-   /* public void openDialog(){
-        LayoutDialog layoutDialog = new LayoutDialog();
-        layoutDialog.show(getSupportFragmentManager(),"layout dialog");
-    }*/
+    public void openDialog1(){
+      EditProfile editProfile = new EditProfile();
+      editProfile.show(getSupportFragmentManager(),"edit profile");
+    }
 }
