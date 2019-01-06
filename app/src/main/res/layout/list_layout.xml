@@ -5,7 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity"
     android:background="@drawable/box"
-    android:descendantFocusability="blocksDescendants">
+    android:descendantFocusability="blocksDescendants"
+    >
+
+
 
     <TextView
         android:id="@+id/subject_name"
@@ -15,30 +18,57 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:textStyle="bold"
-        android:text="hello"/>
+        android:text="hello"
+        android:textAllCaps="true"/>
+
+
     <TextView
         android:id="@+id/current"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="35dp"
-        android:text="hel"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="35dp"
         android:layout_toRightOf="@id/subject_name"
+        android:text="hel"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="30sp"
         android:textStyle="bold" />
+    <TextView
 
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="15dp"
+        android:paddingBottom="5dp"
+        android:layout_toRightOf="@id/subject_name"
+        android:text="current"
+        android:textColor="@android:color/black"
+        android:textSize="11sp"
+         />
     <TextView
         android:id="@+id/minimum"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:text="hel"
         android:layout_toRightOf="@id/current"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textStyle="bold" />
+
+    <TextView
+
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:text="minimum"
+        android:paddingBottom="5dp"
+        android:layout_toRightOf="@id/current"
+        android:textColor="@android:color/black"
+        android:textSize="11sp"
+         />
     <TextView
         android:id="@+id/presents"
         android:layout_width="100dp"
@@ -47,7 +77,8 @@
         android:textSize="15sp"
         android:layout_below="@id/subject_name"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="4dp"/>
+        android:layout_marginLeft="10dp"
+        />
     <TextView
         android:id="@+id/absents"
         android:layout_width="100dp"
@@ -56,7 +87,7 @@
         android:textSize="15sp"
         android:layout_below="@id/presents"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="4dp"/>
+        android:layout_marginLeft="10dp"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,6 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingBottom="10dp"
         android:layout_toRightOf="@id/absents"
         android:layout_below="@id/presents">
 
@@ -119,8 +151,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="80dp"
             android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:background="@android:color/holo_blue_bright"/>
+            android:textColor="@android:color/darker_gray"
+            />
         <TextView
             android:id="@+id/id"
             android:layout_width="35dp"
@@ -129,7 +161,7 @@
             android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
-            android:background="@android:color/holo_blue_bright"/>
+            />
 
     </LinearLayout>
 
