@@ -92,6 +92,9 @@ public class MainActivity extends AppCompatActivity
                 }
                 if(id==R.id.nav_viewdata)
                     ViewData();
+                if(id==R.id.nav_profile)
+                {  Toast.makeText(MainActivity.this, "Clicked on PROFILE", Toast.LENGTH_SHORT).show();
+                   openDialog1();}
                 if(id==R.id.nav_loogut)
                     Toast.makeText(MainActivity.this,"Clicked on LOGOUT",Toast.LENGTH_SHORT).show();
                 if(id==R.id.nav_help)
@@ -188,5 +191,10 @@ public class MainActivity extends AppCompatActivity
                         finish();
                     }
                 }).setNegativeButton("no", null).show();
+    }
+
+    public void openDialog1(){
+        EditProfile editProfile = new EditProfile();
+        editProfile.show(getSupportFragmentManager(),"edit profile");
     }
 }
