@@ -32,7 +32,6 @@
             android:id="@+id/modify_min_percent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:maxLength="2"
             android:hint="College Name"/>
 
