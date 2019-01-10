@@ -23,9 +23,12 @@
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
-        <activity android:name=".AddSubject" />
-        <activity android:name=".DeleteSubject" />
-        <activity android:name=".developers"></activity>
+        <activity android:name=".AddSubject"
+            android:label="ADD SUBJECT"/>
+        <activity android:name=".DeleteSubject"
+            android:label="DELETE SUBJECT"/>
+        <activity android:name=".developers"
+            android:label="DEVELOPERS"/>
     </application>
 
 </manifest>

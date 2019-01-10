@@ -17,6 +17,12 @@ public class DataBaseHelper extends SQLiteOpenHelper
     public static final String COL5="current_percent";
     public static final String COL6="minimum_percent";
 
+    public static final String TABLE_NAME2="profile";
+    public static final String ID="id2";
+    public static final String NAME="name";
+    public static final String COLLEGE_NAME="college";
+    public static final String SEMESTER="semester";
+
     public DataBaseHelper(Context context)
     {
         super(context, TABLE_NAME, null, 1);
@@ -92,4 +98,5 @@ public class DataBaseHelper extends SQLiteOpenHelper
         db.update(TABLE_NAME,value," ID = ?",new String []{id});
         return true;
     }
+
 }

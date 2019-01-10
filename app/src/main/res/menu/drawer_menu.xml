@@ -15,10 +15,6 @@
             android:id="@+id/nav_viewdata"
             android:icon="@drawable/ic_pageview_black_24dp"
             android:title="View Data" />
-        <item
-            android:id="@+id/nav_loogut"
-            android:icon="@drawable/ic_logout"
-            android:title="Log Out" />
     </group>
 
     <item android:title="Communicate">
