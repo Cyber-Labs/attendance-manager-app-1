@@ -92,8 +92,6 @@ public class MainActivity extends AppCompatActivity
                 }
                 if(id==R.id.nav_viewdata)
                     ViewData();
-                if(id==R.id.nav_loogut)
-                    Toast.makeText(MainActivity.this,"Clicked on LOGOUT",Toast.LENGTH_SHORT).show();
                 if(id==R.id.nav_help)
                 {
                     Intent intent=new Intent(Intent.ACTION_SENDTO);
@@ -189,4 +187,5 @@ public class MainActivity extends AppCompatActivity
                     }
                 }).setNegativeButton("no", null).show();
     }
+
 }
