@@ -6,6 +6,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/box"
     android:descendantFocusability="blocksDescendants"
+
     >
 
 
@@ -19,7 +20,8 @@
         android:layout_marginTop="15dp"
         android:textStyle="bold"
         android:text="hello"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:textColor="@android:color/holo_orange_light"/>
 
 
     <TextView
@@ -30,7 +32,7 @@
         android:layout_marginTop="35dp"
         android:layout_toRightOf="@id/subject_name"
         android:text="hel"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="30sp"
         android:textStyle="bold" />
     <TextView
@@ -42,9 +44,9 @@
         android:paddingBottom="5dp"
         android:layout_toRightOf="@id/subject_name"
         android:text="current"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="11sp"
-         />
+        />
     <TextView
         android:id="@+id/minimum"
         android:layout_width="70dp"
@@ -53,7 +55,7 @@
         android:layout_marginTop="30dp"
         android:text="hel"
         android:layout_toRightOf="@id/current"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="35sp"
         android:textStyle="bold" />
 
@@ -66,9 +68,9 @@
         android:text="minimum"
         android:paddingBottom="5dp"
         android:layout_toRightOf="@id/current"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="11sp"
-         />
+        />
     <TextView
         android:id="@+id/presents"
         android:layout_width="100dp"
@@ -78,6 +80,7 @@
         android:layout_below="@id/subject_name"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
+        android:textColor="@android:color/white"
         />
     <TextView
         android:id="@+id/absents"
@@ -87,7 +90,8 @@
         android:textSize="15sp"
         android:layout_below="@id/presents"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:textColor="@android:color/white"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -160,7 +164,7 @@
             android:textSize="20sp"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/darker_gray"
             />
 
     </LinearLayout>
